@@ -2,9 +2,8 @@ import argparse
 
 import numpy as np
 import torch
-from Bio import PDB
 
-from util.atoms import load_structure_from_file
+from util.atoms import load_structure_from_file, save_structure_from_file
 from util.grid import load_mrc, sample_from_map
 
 if __name__ == "__main__":
@@ -46,7 +45,5 @@ if __name__ == "__main__":
                     atom.set_bfactor(sampled_values[i])
                     i += 1
 
-    # Save the modified structure to a new PDB file
-    io = PDB.PDBIO()
-    io.set_structure(structure)
-    io.save(args.output)
+    save_structure_from_file(structure, args.output)
+
