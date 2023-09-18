@@ -10,8 +10,8 @@ from util.grid import load_mrc, sample_from_map
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('mrc', type=str, help="MRC file")
-    parser.add_argument('input', type=str, help="Input structure file", default=None)
-    parser.add_argument('output', type=str, help="output structure file", default=None)
+    parser.add_argument('input', type=str, help="Input structure file")
+    parser.add_argument('output', type=str, help="output structure file")
     args = parser.parse_args()
 
     grid_values, voxel_size, global_origin = load_mrc(args.mrc)
